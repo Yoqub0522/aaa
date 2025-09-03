@@ -1,7 +1,8 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
+from .views import StudentViewSet, StudentImageViewSet
 
-from .views import StudentViewSet
+router = DefaultRouter()
+router.register("students", StudentViewSet)
+router.register("student-images", StudentImageViewSet)
 
-urlpatterns=[
-    path('',StudentViewSet.as_view({'get': 'list', 'post': 'create'}))
-]
+urlpatterns = router.urls

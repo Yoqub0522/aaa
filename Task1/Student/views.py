@@ -1,11 +1,11 @@
-from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
+from .models import Student, StudentImage
+from .serializers import StudentSerializer, StudentImageSerializer
 
-from .models import Student
-from .serializers import StudentSerializer
-
-
-class StudentViewSet(viewsets.ModelViewSet):
+class StudentViewSet(ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
-    permission_classes = [IsAuthenticated]
+
+class StudentImageViewSet(ModelViewSet):
+    queryset = StudentImage.objects.all()
+    serializer_class = StudentImageSerializer

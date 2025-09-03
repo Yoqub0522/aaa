@@ -15,3 +15,6 @@ class Payment(models.Model):
     amount = models.FloatField()
     payment_date = models.DateTimeField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
+
+    def __str__(self):
+        return f"{self.student.user.username} - {self.course.name}"

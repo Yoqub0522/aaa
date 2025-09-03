@@ -6,3 +6,6 @@ class Course(models.Model):
     description = models.TextField()
     price = models.FloatField()
     duration_months = models.IntegerField()
+
+    def __str__(self):
+        return self.name
